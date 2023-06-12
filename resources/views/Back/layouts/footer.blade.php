@@ -1,13 +1,13 @@
 </div>
 </div>
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<!-- <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; Pos_Market {{date("Y")}}</span>
         </div>
     </div>
-</footer>
+</footer> -->
 <!-- End of Footer -->
 
 </div>
@@ -51,16 +51,8 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('back/')}}/js/sb-admin-2.min.js"></script>
 
-<!-- Page level plugins -->
-<script src="{{asset('back/')}}/vendor/chart.js/Chart.min.js"></script>
-<script src="{{asset('back/')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="{{asset('back/')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="{{asset('back/')}}/js/demo/chart-area-demo.js"></script>
-<script src="{{asset('back/')}}/js/demo/chart-pie-demo.js"></script>
-<script src="{{asset('back/')}}/js/demo/chart-bar-demo.js"></script>
-<script src="{{asset('back/')}}/js/demo/datatables-demo.js"></script>
+<!-- data table -->
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 
 

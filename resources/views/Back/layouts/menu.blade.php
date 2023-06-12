@@ -19,6 +19,10 @@
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span>Ayarlar</span>
                     </a>
+                    <a class="nav-link text-white" href="{{route('admin.mal_alis.index')}}">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                        <span>Mal alışı</span>
+                    </a>
                     <!-- profil -->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto ">

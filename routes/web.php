@@ -4,6 +4,7 @@ use App\Http\Controllers\Back\AuthController;
 use App\Http\Controllers\Back\Ayarlar;
 use App\Http\Controllers\Back\Profil;
 use App\Http\Controllers\Back\Excel;
+use App\Http\Controllers\Back\Mal_alis;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +35,10 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
 
     //Excel
     Route::get('/excel',[Excel::class,'index'])->name('excel');
-   
+
+     //Mal alisi
+     Route::resource('/mal_alis',Mal_alis::class);
+     
 });
 
 Route::get('/error',function(){
