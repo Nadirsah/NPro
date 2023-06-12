@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Models\Mal_Alis_Model;
-use Illuminate\Http\Requests\Mal_alis_request;
-use Illuminate\Validation\Validator;
+use Illuminate\Http\Request;
+use Validator;
 
 class Mal_alis extends Controller
 {
@@ -28,8 +28,22 @@ class Mal_alis extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Mal_alis_request $request)
-    {  
+    public function store(Request $request)
+    {  $validator=Validator::make($request->all(),[
+        'techizatci' => 'required',
+        'barcod' => 'required',
+        'mal_adi' => 'required',
+        'tip' => 'required',
+        'miqdar' => 'required',
+        'alis_qiy' => 'required',
+        'alis_meb' => 'required',
+        'satis_qiy' => 'required',
+        'satis_meb' => 'required'
+    ]);
+
+    if(!$validator->passes()){
+        return response()->json(['status' => 0, 'error'=>$validator->errors()->toArray()]);
+    }else{
         $data=new Mal_Alis_Model();
         $data->techizatci=$request->techizatci;
         $data->barcod=$request->barcod;
@@ -41,9 +55,8 @@ class Mal_alis extends Controller
         $data->satis_qiy=$request->satis_qiy;
         $data->satis_cem=$request->satis_meb;
         $data->save();
-        return response()->json(['success' => true]);
-
-
+        return response()->json(['status'=>1,'msg'=>'Elave olundu']);
+    }
     }
 
     /**
