@@ -39,6 +39,7 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
 
      //Mal alisi
      Route::resource('/mal_alis',Mal_alis::class);
+     Route::get('/delete/{id}', [Mal_alis::class, 'delete'])->name('delete');
 
      //techizatci
      Route::resource('/techizatci',Techizatci::class);

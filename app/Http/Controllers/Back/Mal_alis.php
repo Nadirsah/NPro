@@ -14,8 +14,9 @@ class Mal_alis extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   $data=Techizatci_Model::all();
-        return view('back.mal_alis.index',compact('data'));
+    {   $data=Mal_Alis_Model::all();
+        $techiz=Techizatci_Model::all();
+        return view('back.mal_alis.index',compact('data','techiz'));
     }
 
     /**
@@ -23,8 +24,10 @@ class Mal_alis extends Controller
      */
     public function create()
     {
-        //
+        $data=Techizatci_Model::all();
+        return view('back.mal_alis.create',compact('data'));
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -88,5 +91,11 @@ class Mal_alis extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function delete($id)
+    {
+        $data = Mal_Alis_Model::findOrFail($id);
+        $data->delete();
+        return redirect()->route('admin.mal_alis.index')->with('message', 'Məlumat silindi!');
     }
 }

@@ -1,8 +1,14 @@
+<style>
+.btn-group:hover .dropdown-menu {
+    display: block;
+}
+</style>
+
 <body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
         <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content" >
+            <div id="content">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-success topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
@@ -19,14 +25,29 @@
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                         <span>Ayarlar</span>
                     </a>
-                    <a class="nav-link text-white" href="{{route('admin.mal_alis.index')}}">
-                    <i class="fa-solid fa-basket-shopping"></i>
-                        <span>Mal alışı</span>
-                    </a>
+
                     <a class="nav-link text-white" href="{{route('admin.techizatci.index')}}">
-                    <i class="fa-solid fa-truck-field"></i>
+                        <i class="fa-solid fa-truck-field"></i>
                         <span>Təchizatçı</span>
                     </a>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Mal Əməliyyatları
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li> <a class="nav-link text-dark dropdown-item" href="{{route('admin.mal_alis.index')}}">
+                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <span>Mal alışı</span>
+                                </a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Example single danger button -->
+                   
+
+
+
                     <!-- profil -->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto ">

@@ -78,7 +78,54 @@ footer {
   height: 60px; /* Set the height of your footer */
 }
 
+
+
 </style>
+
+<script>
+let table = new DataTable('#dataTable');
+</script>
+<script>
+$(document).ready(function() {
+    var table = $("#dataTable").DataTable({
+        'processing': true,
+        'serverSide': true,
+        columns: [{
+                data: "techizatci"
+            },
+            {
+                data: "sənəd No"
+            },
+            {
+                data: "barcode"
+            },
+            {
+                data: "mal adı"
+            },
+            {
+                data: "tip"
+            },
+            {
+                data: "tip"
+            }
+        ],
+    });
+    
+    $('.filter-input').keyup(function() {
+        table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+           
+    });
+
+
+    $('.filter-select').change(function() {
+        table.column($(this).data('column'))
+            .search($(this).val())
+            .draw();
+    });
+});
+</script>
 </body>
 
 </html>

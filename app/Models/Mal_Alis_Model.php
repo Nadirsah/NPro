@@ -19,4 +19,9 @@ class Mal_Alis_Model extends Model
         'satis_qiy',
         
     ];
+
+    public function getTechizatci()
+    {
+        return $this->hasOne('App\Models\Techizatci_Model', 'id', 'techizatci');
+    }
 }
