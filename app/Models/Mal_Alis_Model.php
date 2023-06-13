@@ -10,14 +10,13 @@ class Mal_Alis_Model extends Model
     use HasFactory;
     protected $fillable = [
         'techizatci',
+        'sened_no',
         'barcode',
         'mal_adi',
         'tip',
         'miqdar',
         'alis_qiy',
-        'alis_cem',
         'satis_qiy',
-        'satis_cem',
         
     ];
 }

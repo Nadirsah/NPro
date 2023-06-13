@@ -8,10 +8,16 @@
     @csrf
     <div class="row justify-content-center">
         <div class="col-md-6">
+            <select name="techizatci" class="form-control form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Təchizatçı</option>
+                @foreach($data as $item)
+                <option value="{{$item->id}}">{{$item->ad}}</option>
+                @endforeach
+            </select>
             <div class="form-group">
-                <label for="techizatci">Təchizatçı</label>
-                <input name="techizatci" type="text" class="form-control mb-2" id="techizatci" autofocus>
-                <span class="text-danger error-text techizatci_error "></span>
+                <label for="sened_no">Sənəd No</label>
+                <input name="sened_no" type="number" class="form-control mb-2" id="sened_no">
+                <span class="text-danger error-text sened_no_error "></span>
             </div>
             <div class="form-group">
                 <label for="barcod">Barcode</label>
@@ -38,30 +44,19 @@
     </div>
     <div class="row mt-2 justify-content-center">
         <div class="col-md-6">
-        <div class="form-group">
-            <label for="alis_qiy">Alış qiyməti</label>
-            <input name="alis_qiy" type="number" class="form-control mb-2" id="alis_qiy" step="0.01" min="0.01"
-                max="100">
-            <span class="text-danger error-text alis_qiy_error "></span>
+            <div class="form-group">
+                <label for="alis_qiy">Alış qiyməti</label>
+                <input name="alis_qiy" type="number" class="form-control mb-2" id="alis_qiy" step="0.01" min="0.01"
+                    max="100">
+                <span class="text-danger error-text alis_qiy_error "></span>
             </div>
             <div class="form-group">
-            <label for="alis_meb">Alış məbləği</label>
-            <input readonly name="alis_meb" type="number" class="form-control mb-2" id="alis_meb" step="0.01" min="0.01"
-                max="100000">
-            <span class="text-danger error-text alis_meb_error "></span>
+                <label for="satis_qiy">Satış qiyməti</label>
+                <input name="satis_qiy" type="number" class="form-control mb-2" id="satis_qiy" step="0.01" min="0.01"
+                    max="100">
+                <span class="text-danger error-text satis_qiy_error "></span>
             </div>
-            <div class="form-group">
-            <label for="satis_qiy">Satış qiyməti</label>
-            <input name="satis_qiy" type="number" class="form-control mb-2" id="satis_qiy" step="0.01" min="0.01"
-                max="100">
-            <span class="text-danger error-text satis_qiy_error "></span>
-            </div>
-            <div class="form-group">
-            <label for="satis_meb">Satış məbləği</label>
-            <input readonly name="satis_meb" type="number" class="form-control mb-2" id="satis_meb" step="0.01"
-                min="0.01" max="100000">
-            <span class="text-danger error-text satis_meb_error "></span>
-            </div>
+            
         </div>
     </div>
     <div class="row mt-2 justify-content-center mb-3">
@@ -95,11 +90,11 @@ $(document).ready(function() {
 
                 if (data.status == 0) {
                     $.each(data.error, function(prefix, val) {
-                        $('span.' +prefix + '_error').text(val[0]);
+                        $('span.' + prefix + '_error').text(val[0]);
                     });
                 } else {
                     $('#myForm')[0].reset();
-                   
+
                 }
             },
             error: function(xhr) {

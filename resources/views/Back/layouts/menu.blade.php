@@ -23,6 +23,10 @@
                     <i class="fa-solid fa-basket-shopping"></i>
                         <span>Mal alışı</span>
                     </a>
+                    <a class="nav-link text-white" href="{{route('admin.techizatci.index')}}">
+                    <i class="fa-solid fa-truck-field"></i>
+                        <span>Təchizatçı</span>
+                    </a>
                     <!-- profil -->
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto ">

@@ -5,6 +5,7 @@ use App\Http\Controllers\Back\Ayarlar;
 use App\Http\Controllers\Back\Profil;
 use App\Http\Controllers\Back\Excel;
 use App\Http\Controllers\Back\Mal_alis;
+use App\Http\Controllers\Back\Techizatci;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,10 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
 
      //Mal alisi
      Route::resource('/mal_alis',Mal_alis::class);
+
+     //techizatci
+     Route::resource('/techizatci',Techizatci::class);
+     Route::get('/delete/{id}', [Techizatci::class, 'delete'])->name('delete');
      
 });
 
