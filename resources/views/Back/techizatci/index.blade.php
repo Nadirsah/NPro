@@ -32,7 +32,7 @@
                             <th>{{$items->ad}}</th>
                             <th>{{$items->phone}}</th>
                             <th> <a href="{{route('admin.techizatci.edit',$items->id)}}" style="margin-right:10px"><i class="btn btn-info fa-solid fa-pen-to-square"></i></a>
-                                <a href="{{route('admin.delete',$items->id)}}"><i class="btn btn-danger fa-solid fa-trash"></i></a>
+                                <a href="{{route('admin.delete.techiz',$items->id)}}"><i class="btn btn-danger fa-solid fa-trash"></i></a>
 
                             </th>
 

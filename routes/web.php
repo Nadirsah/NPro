@@ -39,11 +39,11 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
 
      //Mal alisi
      Route::resource('/mal_alis',Mal_alis::class);
-     Route::get('/delete/{id}', [Mal_alis::class, 'delete'])->name('delete');
+     Route::get('/deletemal/{id}', [Mal_alis::class, 'delete'])->name('delete.mal');
 
      //techizatci
      Route::resource('/techizatci',Techizatci::class);
-     Route::get('/delete/{id}', [Techizatci::class, 'delete'])->name('delete');
+     Route::get('/deletetechiz/{id}', [Techizatci::class, 'delete'])->name('delete.techiz');
      
 });
 

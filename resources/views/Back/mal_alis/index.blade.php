@@ -109,7 +109,7 @@
                             <th>{{$item->satis_qiy}}</th>
                             <th>{{($item->satis_qiy)*($item->miqdar)}}</th>
                             <th> <a href="{{route('admin.mal_alis.edit',$item->id)}}"><i class="btn btn-info fa-solid fa-pen-to-square"></i></a>
-                                <a href="{{route('admin.delete',$item->id)}}"><i class="btn btn-danger fa-solid fa-trash"></i></a>
+                            <a href="{{route('admin.delete.mal',$item->id)}}"><i class="btn btn-danger fa-solid fa-trash"></i></a>
 
                             </th>
 
@@ -127,3 +127,4 @@
 
 
 @endsection
+

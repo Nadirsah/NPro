@@ -94,6 +94,7 @@ $(document).ready(function() {
                     });
                 } else {
                     $('#myForm')[0].reset();
+                    window.location.href = data.redirect;
 
                 }
             },

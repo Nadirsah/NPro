@@ -57,7 +57,7 @@ class Mal_alis extends Controller
         $data->alis_qiy=$request->alis_qiy;
         $data->satis_qiy=$request->satis_qiy;
         $data->save();
-        return response()->json(['status'=>1,'msg'=>'Elave olundu']);
+        return response()->json(['status'=>1,'msg'=>'Elave olundu', 'redirect' => route('admin.mal_alis.index')]);
     }
     }
 
@@ -73,8 +73,9 @@ class Mal_alis extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
-        //
+    {   $data=Mal_Alis_Model::findOrFail($id);
+        $techiz=Techizatci_Model::all();
+        return view('back.mal_alis.update',compact('data','techiz'));
     }
 
     /**
@@ -82,7 +83,32 @@ class Mal_alis extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validator=Validator::make($request->all(),[
+            'techizatci' => 'required',
+            'sened_no' => 'required',
+            'barcod' => 'required',
+            'mal_adi' => 'required',
+            'tip' => 'required',
+            'miqdar' => 'required',
+            'alis_qiy' => 'required',
+            'satis_qiy' => 'required',
+        ]);
+    
+        if(!$validator->passes()){
+            return response()->json(['status' => 0, 'error'=>$validator->errors()->toArray()]);
+        }else{
+            $data=Mal_Alis_Model::findOrFail($id);
+            $data->techizatci=$request->techizatci;
+            $data->sened_no=$request->sened_no;
+            $data->barcod=$request->barcod;
+            $data->mal_adi=$request->mal_adi;
+            $data->tip=$request->tip;
+            $data->miqdar=$request->miqdar;
+            $data->alis_qiy=$request->alis_qiy;
+            $data->satis_qiy=$request->satis_qiy;
+            $data->update();
+            return response()->json(['status'=>1,'msg'=>'Elave olundu', 'redirect' => route('admin.mal_alis.index')]);
+        }
     }
 
     /**
@@ -94,8 +120,12 @@ class Mal_alis extends Controller
     }
     public function delete($id)
     {
-        $data = Mal_Alis_Model::findOrFail($id);
+        $data = Mal_alis_Model::findOrFail($id);
         $data->delete();
-        return redirect()->route('admin.mal_alis.index')->with('message', 'Məlumat silindi!');
+
+        return redirect()->route('admin.mal_alis.index')->with(['success' => 'Səhifə uğurla silindi!']);
     }
-}
+
+
+    }
+

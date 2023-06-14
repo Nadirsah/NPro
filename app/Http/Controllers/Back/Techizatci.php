@@ -98,6 +98,6 @@ class Techizatci extends Controller
         $data = Techizatci_Model::findOrFail($id);
         $data->delete();
 
-        return redirect()->route('admin.techizatci.index')->with('message', 'Məlumat silindi!');
+        return redirect()->route('admin.techizatci.index')->with(['success' => 'Səhifə uğurla silindi!']);
     }
 }
