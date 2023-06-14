@@ -36,6 +36,7 @@ Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function ()
 
     //Excel
     Route::get('/excel',[Excel::class,'index'])->name('excel');
+    Route::get('/excelmal',[Excel::class,'malindex'])->name('excelmal');
 
      //Mal alisi
      Route::resource('/mal_alis',Mal_alis::class);
@@ -53,3 +54,7 @@ Route::get('/error',function(){
 
 Route::get('users-export', [Profil::class, 'export'])->name('users.export');
 Route::post('users-import', [Profil::class, 'import'])->name('users.import');
+
+Route::get('mal-export', [Mal_alis::class, 'export'])->name('mal.export');
+Route::post('mal-import', [Mal_alis::class, 'import'])->name('mal.import');
+

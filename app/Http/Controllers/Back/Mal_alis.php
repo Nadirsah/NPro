@@ -7,6 +7,9 @@ use App\Models\Mal_Alis_Model;
 use App\Models\Techizatci_Model;
 use Illuminate\Http\Request;
 use Validator;
+use App\Exports\MalExport;
+use App\Imports\MalImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Mal_alis extends Controller
 {
@@ -125,7 +128,22 @@ class Mal_alis extends Controller
 
         return redirect()->route('admin.mal_alis.index')->with(['success' => 'Səhifə uğurla silindi!']);
     }
+    public function export() 
+    {
+        return Excel::download(new MalExport, 'mal.xlsx');
+    }
 
+    public function import()
+{
+    try {
+        Excel::import(new MalImport, request()->file('file'));
+    } catch (ValidationException $e) {
+        $failures = $e->failures();
+        // Hata işleme kodu buraya gelebilir
+    }
+
+    return back();
+}
 
     }
 

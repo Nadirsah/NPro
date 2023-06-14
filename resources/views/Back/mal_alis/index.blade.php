@@ -15,7 +15,8 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Cedvel <span><a href="{{route('admin.mal_alis.create')}}"><i
-                            class="btn btn-success fa-solid fa-circle-plus"></i></a></span></h6>
+                            class="btn btn-success fa-solid fa-circle-plus"></i></a></span><span style="margin-left:10px">Excel<a
+                        href="{{route('admin.excelmal')}}"><i class="btn btn-success fa-solid fa-file-excel" style="margin-left:10px"></i></a></span></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

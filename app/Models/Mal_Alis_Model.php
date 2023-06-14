@@ -11,7 +11,7 @@ class Mal_Alis_Model extends Model
     protected $fillable = [
         'techizatci',
         'sened_no',
-        'barcode',
+        'barcod',
         'mal_adi',
         'tip',
         'miqdar',
