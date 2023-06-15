@@ -114,7 +114,10 @@
                                     <td id="say">{{ $loop->iteration }}</td>
                                     <td>{{$item->getTechizatci->ad}}</td>
                                     <td>{{$item->sened_no}}</td>
-                                    <td>{{$item->barcod}}</td>
+                                    <td>{!! DNS1D::getBarcodeHTML("$item->barcod", 'PHARMA', 2,33) !!}
+                                    {{$item->barcod}}
+                                    </td>
+                                   
                                     <td>{{$item->mal_adi}}</td>
                                     <td>{{$item->tip}}</td>
                                     <td id="miqdar">{{$item->miqdar}}</td>

@@ -39,7 +39,6 @@ class Mal_alis extends Controller
     {  $validator=Validator::make($request->all(),[
         'techizatci' => 'required',
         'sened_no' => 'required',
-        'barcod' => 'required',
         'mal_adi' => 'required',
         'tip' => 'required',
         'miqdar' => 'required',
@@ -47,13 +46,22 @@ class Mal_alis extends Controller
         'satis_qiy' => 'required',
     ]);
 
+    $number=mt_rand(1000000000,9999999999);
+    if($this->productCodeExist($number)){
+        $number=mt_rand(1000000000,999999999);
+    }
+
     if(!$validator->passes()){
         return response()->json(['status' => 0, 'error'=>$validator->errors()->toArray()]);
     }else{
         $data=new Mal_Alis_Model();
         $data->techizatci=$request->techizatci;
         $data->sened_no=$request->sened_no;
-        $data->barcod=$request->barcod;
+        if($request->barcod ==''){
+            $data->barcod=$number;
+        }else{
+            $data->barcod=$request->barcod;
+        }        
         $data->mal_adi=$request->mal_adi;
         $data->tip=$request->tip;
         $data->miqdar=$request->miqdar;
@@ -62,6 +70,9 @@ class Mal_alis extends Controller
         $data->save();
         return response()->json(['status'=>1,'msg'=>'Elave olundu', 'redirect' => route('admin.mal_alis.index')]);
     }
+    }
+    public function productCodeExist($number){
+        return Mal_Alis_Model::whereBarcod($number)->exists();
     }
 
     /**
