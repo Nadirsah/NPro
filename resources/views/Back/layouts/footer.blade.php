@@ -82,6 +82,9 @@ footer {
 
 </style>
 <script>
+let table = new DataTable('#dataTable');
+</script>
+<script>
 $(document).ready(function() {
     var table = $("#dataTable").DataTable({
         'processing': true,

@@ -24,7 +24,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <!-- <table>
+                <table id="">
                     <td><select data-column="1" name="techizatci" class="form-control filter-select text-dark">
                             <option value="">Təchizatçı seçin</option>
                             @foreach($techiz as $techizs)
@@ -81,7 +81,8 @@
                         <hr>
                         <input type="text" class="form-control filter-input" data-column='6'>
                     </td>
-                </table> -->
+                </table>
+                <hr>
                 <div class="col-md-3">
                     <div class="form-group">
                         <input type="text" class="form-control" id="searchInput" placeholder="Axtar...">
@@ -89,7 +90,7 @@
                 </div>
                 <hr>
                 <div style="height: 500px; overflow-y: scroll;">
-                    <table class="table table-bordered" id="mal_alis" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead class="text-danger bg-dark" style="position: sticky; top: 0; z-index: 1;">
                             <tr>
                                 <th>Say</th>
@@ -114,8 +115,9 @@
                                     <td id="say">{{ $loop->iteration }}</td>
                                     <td>{{$item->getTechizatci->ad}}</td>
                                     <td>{{$item->sened_no}}</td>
-                                    <td>{!! DNS1D::getBarcodeHTML("$item->barcod", 'PHARMA', 2,33) !!}
-                                    {{$item->barcod}}
+                                    <td>{{$item->barcod}}
+                                        <!-- {!! DNS1D::getBarcodeHTML("$item->barcod", 'PHARMA', 2,33) !!} -->
+                                    
                                     </td>
                                    
                                     <td>{{$item->mal_adi}}</td>
